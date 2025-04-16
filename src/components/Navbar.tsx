@@ -1,33 +1,34 @@
 import Image from "next/image";
+import Link from "next/link";
 import logo from "../assets/logo.jpg";
 import { MagnifyingGlassIcon, ShoppingCartIcon } from "@heroicons/react/24/solid";
 
-// Simulate login status (replace this with real auth logic)
+// Simulate login status (replace with real auth)
 const isLoggedIn = true;
 
 export default function Navbar() {
   return (
-    <nav className="flex flex-col md:flex-row items-center justify-between px-6 py-4 shadow-md bg-white gap-4 md:gap-0">
-      
+  <nav className="font-rubik flex flex-col md:flex-row items-center justify-between px-6 py-4 shadow-md bg-white gap-4 md:gap-0">
+
       {/* Logo */}
       <div className="flex items-center">
-        <Image src={logo} alt="Logo" width={150} height={50} className="rounded-full" />
+        <Image src={logo} alt="Grocery App Logo" width={150} height={50} className="rounded-full" />
       </div>
 
       {/* Nav + Search */}
       <div className="flex flex-col md:flex-row items-center gap-4">
         <div className="flex gap-6">
-          <a href="" className="text-black hover:text-gray-600">Home</a>
-          <a href="/products" className="text-black hover:text-gray-600">Products</a>
+          <Link href="/" className="text-black hover:text-gray-600">Home</Link>
+          <Link href="/products" className="text-black hover:text-gray-600">Products</Link>
         </div>
 
-        {/* Search with icon */}
+        {/* Search */}
         <div className="relative">
-          <MagnifyingGlassIcon className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
+          <MagnifyingGlassIcon aria-label="Search" className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
           <input
             type="text"
             placeholder="Search product..."
-            className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600"
           />
         </div>
       </div>
@@ -35,7 +36,7 @@ export default function Navbar() {
       {/* Right-side actions */}
       <div className="flex items-center gap-4">
         {isLoggedIn && (
-          <ShoppingCartIcon className="w-6 h-6 text-green-700 hover:text-green-500 cursor-pointer" />
+          <ShoppingCartIcon aria-label="Cart" className="w-6 h-6 text-green-700 hover:text-green-500 cursor-pointer" />
         )}
         <button className="px-4 py-2 bg-green-800 text-white rounded-lg hover:bg-green-600">
           {isLoggedIn ? "Logout" : "Login"}
@@ -44,3 +45,4 @@ export default function Navbar() {
     </nav>
   );
 }
+
