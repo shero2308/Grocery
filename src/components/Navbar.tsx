@@ -48,21 +48,21 @@ export default function Navbar() {
         </div>
 
         {/* Center Nav (Desktop Only) */}
-        {isLoggedIn && (
-          <div className="hidden md:flex flex-1 justify-center items-center gap-6">
-            <Link href="/" className="text-black hover:text-gray-600">Home</Link>
-            <Link href="/products" className="text-black hover:text-gray-600">Products</Link>
+        <div className="hidden md:flex flex-1 justify-center items-center gap-6">
+          <Link href="/" className="text-black hover:text-gray-600">Home</Link>
+          <Link href="/products" className="text-black hover:text-gray-600">Products</Link>
+          {isLoggedIn && (
             <Link href="/orders" className="text-black hover:text-gray-600">My Orders</Link>
-            <div className="relative">
-              <MagnifyingGlassIcon className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
-              <input
-                type="text"
-                placeholder="Search product..."
-                className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600"
-              />
-            </div>
+          )}
+          <div className="relative">
+            <MagnifyingGlassIcon className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
+            <input
+              type="text"
+              placeholder="Search product..."
+              className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600"
+            />
           </div>
-        )}
+        </div>
 
         {/* Right side icons */}
         <div className="hidden md:flex items-center gap-4">
